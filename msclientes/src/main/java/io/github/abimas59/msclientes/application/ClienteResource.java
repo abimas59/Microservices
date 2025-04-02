@@ -37,7 +37,7 @@ public class ClienteResource {
     }
 
     @GetMapping(params = "cpf")
-    public ResponseEntity dadosCliente(@RequestParam String cpf){
+    public ResponseEntity dadosCliente(@RequestParam("cpf") String cpf){
         var cliente = service.getByCPF(cpf);
         if(cliente.isEmpty()){
             return ResponseEntity.notFound().build();
